@@ -47,6 +47,8 @@
         <p>One of the things that I love about PHP is that it has password hashing and password verification built in without the need for external libraries.</p>
         <p>For example, here is the word "password" hashed as a password: <?php echo password_hash("password", PASSWORD_DEFAULT); ?></p>
 
+        <p>It can also be verified using PHP.</p>
+
     </div>
 
 </body>
