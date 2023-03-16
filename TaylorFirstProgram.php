@@ -44,10 +44,20 @@
 
         <hr>
 
+        <?php
+            $rawPassword = "MyPassword";
+            $hashedPassword = password_hash($rawPassword, PASSWORD_DEFAULT)
+        ?>
+
         <p>One of the things that I love about PHP is that it has password hashing and password verification built in without the need for external libraries.</p>
-        <p>For example, here is the word "password" hashed as a password: <?php echo password_hash("password", PASSWORD_DEFAULT); ?></p>
+        <p>For example, here is a raw password in plain text: <?php echo $rawPassword ?></p>
+        <p>Here is the hash of that password using password_hash(): <?php echo $hashedPassword ?></p>
+        <p>Using password_verify() we can confirm that the password matches the hashed version: <?php echo password_verify($rawPassword, $hashedPassword) ?></p>
+
+        <br>
 
         <p>It can also be verified using PHP.</p>
+
 
     </div>
 
