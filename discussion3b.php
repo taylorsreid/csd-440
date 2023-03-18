@@ -1,0 +1,5 @@
+<?php
+
+$myString = "Hello world!";
+
+?>
