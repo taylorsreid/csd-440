@@ -49,16 +49,10 @@
 
     <div id="content">
         <table>
-            <?php
-                //
-                for ($c=0; $c <= 5; $c++) {
-            ?>
+            <?php for ($row = 0; $row <= 4; $row++) { //outer loop that creates each row ?>
                 <tr>
-                    <?php
-                        //
-                        for ($r=0; $r <= 5; $r++) {
-                    ?>
-                        <td><?= rand(0, 100) ?></td>
+                    <?php for ($column = 0; $column <= 4; $column++) { //nested inner loop that creates each cell in the row ?>
+                        <td><?= rand(0, 100); //generate random number in range ?></td>
                     <?php } ?>
                 </tr>
             <?php } ?>
