@@ -17,8 +17,12 @@
 
     <style>
 
-        #title {
+        #header {
             text-align: right;
+        }
+
+        #title {
+            text-align: center;
         }
 
         #content {
@@ -41,11 +45,13 @@
 </head>
 <body>
 
-    <div id="title">
+    <div id="header">
         <p>Taylor Reid</p>
         <p>3/18/2023</p>
         <p>CSD 440 Module 2 Assignment</p>
     </div>
+
+    <h1 id="title">Table of Random Numbers</h1>
 
     <div id="content">
         <table>
