@@ -67,7 +67,7 @@
              */
             function isPalindrome(string $word){
                 //Compares the string to its reversed version.  Uses the ternary operator.
-                return ($word == strrev($word)) ? "yes" : "no";
+                return ($word === strrev($word)) ? "yes" : "no";
             }
 
             //declare strings to test, first 3 are palindromes, last 3 are not
