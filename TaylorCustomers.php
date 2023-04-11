@@ -1,7 +1,7 @@
 <!--
     Taylor Reid
     4/3/2023
-    CSD 440 Module 4 Assignment
+    CSD 440 Module 5 Assignment
 
     The purpose of this program is to create and display an array of customers (minimum of 10 customers) that includes their first name, last name, age, and phone number.
     Then, using array methods, find several records and display the customer information based on different data fields.
