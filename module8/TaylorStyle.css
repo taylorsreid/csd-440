@@ -1,0 +1,25 @@
+/*
+    Taylor Reid
+    4/18/2023
+    CSD 440 Module 8 Assignment
+
+    The purpose of this program is to create, populate, and test a MySQL table on a topic that interests me using MySQLi.
+    For my topic I decided to create a table to help track tipped income, since as a tipped employee it can be very tricky to track how much I'm actually making.
+*/
+
+#header {
+    text-align: right;
+}
+
+#title {
+    text-align: center;
+}
+
+.content {
+    margin: auto;
+    text-align: center;
+}
+
+h1, h2 {
+    text-align: center;
+}

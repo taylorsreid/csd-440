@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drop Table</title>
+    <title>Module 8 Assignment - Taylor Reid</title>
 
     <link rel="stylesheet" href="TaylorStyle.css">
 
@@ -22,27 +22,16 @@
 
     <?php
         include_once "./TaylorHeader.html";
-        require_once "./TaylorConnectionManager.php";
     ?>
 
-    <h1 id="title">Drop Table</h1>
+    <h1 id="title">Wage and Tip Tracking</h1>
 
     <div class="content">
-        Dropping table...
-        <?php
-            try {
-                // echo 1/0; //uncomment to test try block functionality
-                $conn = new ConnectionManager(); //get preconfigured DB connection
-                $conn->query('DROP TABLE `shift`;');
-                echo "SUCCESS!";
-            } catch (\Throwable $th) {
-                echo "FAILURE!<br>";
-                echo $th->__toString(); //output cause of exception
-            } finally {
-                $conn -> close();
-            }
-        ?>
-    </div>
-    
+        <p><a href="./TaylorCreateTable.php">Create Table</a></p>
+        <p><a href="./TaylorPopulateTable.php">Populate Table</a></p>
+        <p><a href="./TaylorQueryTable.php">Query Table</a></p>
+        <p><a href="./TaylorDropTable.php">Drop Table</a></p>
+    </div> 
+
 </body>
 </html>
