@@ -23,7 +23,20 @@
         
 
     <?php if ($_SERVER["REQUEST_METHOD"] == "GET") { ?>
-    
+        
+        <form>
+            
+            <label for="hourlyRate">Hourly rate:</label>
+            <input type="number" step="0.01">
+            
+            <label for="hoursWorked">Hours worked:</label>
+            <input type="number" step="0.01">
+            
+            <label for="date">Date:</label>
+            <input type="date" max="">
+            
+        </form>
+        
     <?php } ?>
 
 
