@@ -27,20 +27,37 @@
         <form>
             
             <label for="hourlyRate">Hourly rate:</label>
-            <input type="number" step="0.01">
+            <input type="number" id="hourlyRate" step="0.01">
             
             <label for="hoursWorked">Hours worked:</label>
-            <input type="number" step="0.01">
+            <input type="number" id="hoursWorked" step="0.01">
             
             <label for="date">Date:</label>
-            <input type="date" max="">
+            <input type="date" id="date" max="<?= date("Y-m-d") ?>">
+            
+            <label for="tips">Tips:</label>
+            <input type="number" id="tips" step="0.01">
+            
+            <label for="job">Job:</label>
+            <input type="text" id="job">
             
         </form>
         
     <?php } ?>
 
 
-    <?php if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
+    <?php if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+        require_once "./TaylorConnectionManager.php";
+        try {
+            $conn = new ConnectionManager();
+            $ps = $conn->prepare('INSERT INTO `shift` (`hourly_rate`, `hours_worked`, `date`, `tips`, `job`) VALUES (?, ?, ?, ?, ?)');
+            $ps->bind_param('ddsds', $_REQUEST['hourlyRate'], $_REQUEST['hoursWorked'], $_REQUEST['date'], $_REQUEST['tips'], $_REQUEST['job']);
+            $ps->execute();
+        } catch (\Throwable $th) {
+            echo "FAILURE!<br>";
+            echo $th->__toString(); //output cause of exception
+        }
+    ?>
     
     <?php } ?>
 
