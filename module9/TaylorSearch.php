@@ -3,7 +3,11 @@
     4/24/2023
     CSD 440 Module 9 Assignment
 
-    The purpose of this program is to 
+    The purpose of this program is to create PHP programs that provide:
+        an index page with links to all files,
+        a query page to search based on user form input,
+        a form page for adding a record,
+        and all files from Module 8.
 -->
 
 <!DOCTYPE html>
@@ -17,9 +21,12 @@
 </head>
 <body>
 
-    <?php include_once "./TaylorHeader.html"; ?>
+    <?php  ?>
         
-    <?php if ($_SERVER["REQUEST_METHOD"] == "GET") { ?>
+    <?php
+        include_once "./TaylorHeader.html";
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    ?>
 
         <h1>Search for a Shift</h1>
 
@@ -105,7 +112,7 @@
                     break;
             }
 
-            //
+            //similar to above, but restricts column names
             switch ($_REQUEST["searchColumn"]) {
                 case 'hourly_rate':
                 case 'hours_worked':
@@ -120,19 +127,14 @@
                     break;
             }
 
+            //get put the request values into a prepared statement, searchColumn and searchOperator have to be concatenated due to prepared statement limitations,
+            //but have already been checked that they are safe
             try {
                 $searchValue = $_REQUEST["searchValue"];
                 $sql = "SELECT * FROM `shift` WHERE {$searchColumn} {$searchOperator} ?";
                 $conn = new ConnectionManager();
                 $ps = $conn->prepare($sql);
-
-                if (is_numeric($searchColumn)) {
-                    $ps->bind_param("d", $searchValue);
-                }
-                else {
-                    $ps->bind_param("s", $searchValue);
-                }
-
+                $ps->bind_param("s", $searchValue);
                 $ps->execute();
                 $rs = $ps->get_result();
         ?>      
@@ -143,7 +145,10 @@
                 <th>Tips</th>
                 <th>Job</th>
             </tr>
-        <?php while ($row = $rs->fetch_assoc()) { ?>
+        <?php
+            //output results as table
+            while ($row = $rs->fetch_assoc()) {
+        ?>
             <tr>
                 <td><?= $row["hourly_rate"] ?></td>
                 <td><?= $row["hours_worked"] ?></td>
@@ -154,7 +159,7 @@
         <?php }
             }
             catch (\Throwable $th) {
-                echo $th->__toString();
+                echo $th->__toString(); //wouldn't do it this way in production but it works well for proof of concepts
             }
             finally {
                 $conn->close();

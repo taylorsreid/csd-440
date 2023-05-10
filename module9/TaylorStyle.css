@@ -25,7 +25,7 @@ h1, h2 {
     flex-wrap: nowrap;
 }
   
-.flexBox > form {
+.flexBox > form , .flexBox > .cell {
     width: auto;
     margin: auto;
     text-align: center;

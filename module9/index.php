@@ -3,7 +3,11 @@
     4/24/2023
     CSD 440 Module 9 Assignment
 
-    The purpose of this program is to 
+    The purpose of this program is to create PHP programs that provide:
+        an index page with links to all files,
+        a query page to search based on user form input,
+        a form page for adding a record,
+        and all files from Module 8.
 -->
 
 <!DOCTYPE html>
